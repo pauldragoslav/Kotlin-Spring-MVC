@@ -1,12 +1,13 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-	id("org.springframework.boot") version "2.1.9.RELEASE"
+	id("org.springframework.boot") version "2.2.1.RELEASE"
 	id("io.spring.dependency-management") version "1.0.8.RELEASE"
-	kotlin("jvm") version "1.2.71"
-	kotlin("plugin.spring") version "1.2.71"
-	kotlin("plugin.jpa") version "1.2.71"
-	kotlin("plugin.allopen") version "1.2.71"
+	kotlin("jvm") version "1.3.60"
+	kotlin("plugin.spring") version "1.3.60"
+	kotlin("plugin.jpa") version "1.3.60"
+	kotlin("plugin.allopen") version "1.3.60"
+	kotlin("kapt") version "1.3.60"
 }
 
 group = "com.example.paul"
@@ -32,8 +33,8 @@ dependencies {
 	}
 	testImplementation("org.junit.jupiter:junit-jupiter-api")
 	testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
-	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 	testImplementation("com.ninja-squad:springmockk:1.1.3")
+	kapt("org.springframework.boot:spring-boot-configuration-processor")
 }
 
 allOpen {
