@@ -27,21 +27,23 @@ internal class HttpControllersTests(@Autowired val mockMvc: MockMvc) {
     fun `List articles`() {
         val spotty = User("spottyg", "Spotty", "Giraffe")
         val firstArticle = Article(
-                "Spring-boot and Kotlin I",
-                "Spring-boot and Kotlin are fantastic",
-                "Bla bla",
+                "Reticulated Giraffe",
+                "Giraffa camelopardalis reticulata",
+                "It lives in Somalia, southern Ethiopia, and northern Kenya ...",
+                "a url",
                 spotty)
         val secondArticle = Article(
-                "Spring-boot and Kotlin II",
-                "Spring-boot and Kotlin are fantastic",
-                "Bla bla",
+                "Rothschild's Giraffe",
+                "Giraffa camelopardalis rothschildi",
+                "It is one of the most endangered distinct populations of giraffe ...",
+                "another url",
                 spotty)
 
         every { articleRepo.findAllByOrderByAddedAtDesc() } returns listOf(firstArticle, secondArticle)
 
         mockMvc.perform(get("/api/article/").accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk)
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("\$.[0].author.login").value(spotty.login))
                 .andExpect(jsonPath("\$.[0].slug").value(firstArticle.slug))
                 .andExpect(jsonPath("\$.[1].author.login").value(spotty.login))
@@ -50,13 +52,13 @@ internal class HttpControllersTests(@Autowired val mockMvc: MockMvc) {
 
     @Test
     fun `List users`() {
-        val juergen = User("springjuergen", "Juergen", "Hoeller")
-        val smaldini = User("smaldini", "Stéphane", "Maldini")
-        every { userRepo.findAll() } returns listOf(juergen, smaldini)
+        val sparky = User("sparkyg", "Sparky", "Giraffe")
+        val spotty = User("spottyg", "Spotty", "Giraffe")
+        every { userRepo.findAll() } returns listOf(sparky, spotty)
         mockMvc.perform(get("/api/user/").accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk)
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
-                .andExpect(jsonPath("\$.[0].login").value(juergen.login))
-                .andExpect(jsonPath("\$.[1].login").value(smaldini.login))
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andExpect(jsonPath("\$.[0].login").value(sparky.login))
+                .andExpect(jsonPath("\$.[1].login").value(spotty.login))
     }
 }

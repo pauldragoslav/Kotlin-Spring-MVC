@@ -21,18 +21,21 @@ class BlogConfiguration {
                 title = "Reticulated Giraffe",
                 headline = "Giraffa camelopardalis reticulata",
                 content = "It lives in Somalia, southern Ethiopia, and northern Kenya ...",
+                url = "https://en.wikipedia.org/wiki/Reticulated_giraffe",
                 author = sparky
         ))
         articleRepo.save(Article(
                 title = "Rothschild's Giraffe",
                 headline = "Giraffa camelopardalis rothschildi",
                 content = "It is one of the most endangered distinct populations of giraffe ...",
+                url = "https://en.wikipedia.org/wiki/Rothschild%27s_giraffe",
                 author = sparky
         ))
         articleRepo.save(Article(
                 title = "West African Giraffe",
                 headline = "Giraffa camelopardalis peralta",
                 content = "It is a subspecies of the giraffe distinguished by its light colored spots ...",
+                url = "https://en.wikipedia.org/wiki/West_African_giraffe",
                 author = spotty
         ))
     }

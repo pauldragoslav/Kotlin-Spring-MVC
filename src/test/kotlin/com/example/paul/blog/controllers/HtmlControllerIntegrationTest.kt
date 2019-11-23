@@ -40,7 +40,8 @@ internal class HtmlControllerIntegrationTest(@Autowired val restTemplate: TestRe
         assertThat(entity.body).contains(
                 title,
                 "Giraffa camelopardalis reticulata",
-                "It lives in Somalia, southern Ethiopia, and northern Kenya ..."
+                "It lives in Somalia, southern Ethiopia, and northern Kenya ...",
+                "More info"
         )
     }
 

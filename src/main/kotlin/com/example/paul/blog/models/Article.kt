@@ -12,6 +12,7 @@ class Article(
         var title: String,
         var headline: String,
         var content: String,
+        var url: String,
         @ManyToOne
         var author: User,
         var slug: String = title.toSlug(),

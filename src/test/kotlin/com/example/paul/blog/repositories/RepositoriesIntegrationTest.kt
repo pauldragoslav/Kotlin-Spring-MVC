@@ -21,9 +21,10 @@ internal class ArticleRepositoryTest @Autowired constructor(
         entityManager.persist(spotty)
 
         val firstArticle = Article(
-                "Spring-boot and Kotlin",
-                "Spring-boot and Kotlin are fantastic",
-                "Bla bla",
+                "Rothschild's Giraffe",
+                "Giraffa camelopardalis rothschildi",
+                "It is one of the most endangered distinct populations of giraffe ...",
+                "a url",
                 spotty)
         entityManager.persist(firstArticle)
         entityManager.flush()

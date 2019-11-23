@@ -1,5 +1,6 @@
 package com.example.paul.blog.controllers
 
+import com.example.paul.blog.config.BlogProperties
 import com.example.paul.blog.models.Article
 import com.example.paul.blog.models.User
 import com.example.paul.blog.repositories.ArticleRepository
@@ -11,11 +12,13 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 
 @Controller
-class HtmlController(private val articleRepo: ArticleRepository) {
+class HtmlController(private val articleRepo: ArticleRepository,
+                     private val properties: BlogProperties) {
 
     @GetMapping("/")
     fun blog(model: Model): String {
-        model["title"] = "Blog"
+        model["title"] = properties.title
+        model["banner"] = properties.banner
         model["articles"] = articleRepo.findAllByOrderByAddedAtDesc()
                 .map { it.render() }
 
@@ -40,6 +43,7 @@ class HtmlController(private val articleRepo: ArticleRepository) {
             title,
             headline,
             content,
+            url,
             author,
             addedAt.format()
     )
@@ -49,6 +53,7 @@ class HtmlController(private val articleRepo: ArticleRepository) {
             val title: String,
             val headline: String,
             val content: String,
+            var url: String,
             val author: User,
             val addedAt: String
     )
