@@ -1,5 +1,5 @@
 # Kotlin Spring MVC
-Demo project demonstrating the use of Kotlin, Spring MVC and Moustache to build a mock blog on the subject of 
+Demo project demonstrating the use of Kotlin, Spring MVC and Mustache to build a mock blog on the subject of 
 [giraffes](https://en.wikipedia.org/wiki/Giraffe). JUnit Jupiter is used for building the testing framework. 
 
 ## Running locally
@@ -24,4 +24,4 @@ docker run -p 8080:8080 kotlin-spring-mvc
 * Article: http://localhost:8080/article/west-african-giraffe
 
 ### References
-Based upon: https://spring.io/guides/tutorials/spring-boot-kotlin/
+Based upon: https://spring.io/guides/tutorials/spring-boot-kotlin
