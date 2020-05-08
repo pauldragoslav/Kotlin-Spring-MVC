@@ -1,4 +1,4 @@
-FROM adoptopenjdk/openjdk11:jdk-11.0.4_11
+FROM adoptopenjdk/openjdk14:jdk-14.0.1_7
 VOLUME /tmp
 ARG JAR_FILE
 COPY build/libs/giraffe-blog-*.jar app.jar

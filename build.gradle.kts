@@ -1,18 +1,18 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-	id("org.springframework.boot") version "2.2.5.RELEASE"
+	id("org.springframework.boot") version "2.2.7.RELEASE"
 	id("io.spring.dependency-management") version "1.0.9.RELEASE"
-	kotlin("jvm") version "1.3.70"
-	kotlin("plugin.spring") version "1.3.70"
-	kotlin("plugin.jpa") version "1.3.70"
-	kotlin("plugin.allopen") version "1.3.70"
-	kotlin("kapt") version "1.3.70"
+	kotlin("jvm") version "1.3.72"
+	kotlin("plugin.spring") version "1.3.72"
+	kotlin("plugin.jpa") version "1.3.72"
+	kotlin("plugin.allopen") version "1.3.72"
+	kotlin("kapt") version "1.3.72"
 }
 
 group = "com.example.paul"
 version = "0.1.0"
-java.sourceCompatibility = JavaVersion.VERSION_11
+java.sourceCompatibility = JavaVersion.VERSION_14
 
 repositories {
 	mavenCentral()
@@ -28,12 +28,13 @@ dependencies {
 	runtimeOnly("org.springframework.boot:spring-boot-devtools")
 	runtimeOnly("com.h2database:h2")
 	testImplementation("org.springframework.boot:spring-boot-starter-test") {
+		exclude(module = "junit-vintage-engine")
 		exclude(module = "junit")
 		exclude(module = "mockito-core")
 	}
 	testImplementation("org.junit.jupiter:junit-jupiter-api")
 	testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
-	testImplementation("com.ninja-squad:springmockk:2.0.0")
+	testImplementation("com.ninja-squad:springmockk:2.0.1")
 	kapt("org.springframework.boot:spring-boot-configuration-processor")
 }
 
@@ -50,6 +51,6 @@ tasks.withType<Test> {
 tasks.withType<KotlinCompile> {
 	kotlinOptions {
 		freeCompilerArgs = listOf("-Xjsr305=strict")
-		jvmTarget = "1.8"
+		jvmTarget = "13"
 	}
 }
