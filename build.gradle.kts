@@ -1,18 +1,18 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-	id("org.springframework.boot") version "2.4.1"
-	id("io.spring.dependency-management") version "1.0.10.RELEASE"
-	kotlin("jvm") version "1.4.21"
-	kotlin("plugin.spring") version "1.4.21"
-	kotlin("plugin.jpa") version "1.4.21"
-	kotlin("plugin.allopen") version "1.4.21"
-	kotlin("kapt") version "1.4.21"
+	id("org.springframework.boot") version "2.6.8"
+	id("io.spring.dependency-management") version "1.0.11.RELEASE"
+	kotlin("jvm") version "1.6.21"
+	kotlin("plugin.spring") version "1.6.21"
+	kotlin("plugin.jpa") version "1.6.21"
+	kotlin("plugin.allopen") version "1.6.21"
+	kotlin("kapt") version "1.6.21"
 }
 
 group = "com.example.paul"
 version = "0.1.0"
-java.sourceCompatibility = JavaVersion.VERSION_14
+java.sourceCompatibility = JavaVersion.VERSION_17
 
 repositories {
 	mavenCentral()
@@ -31,7 +31,7 @@ dependencies {
 	testImplementation("org.springframework.boot:spring-boot-starter-test") {
 		exclude(module = "mockito-core")
 	}
-    testImplementation("com.ninja-squad:springmockk:2.0.1")
+    testImplementation("com.ninja-squad:springmockk:3.1.1")
 	kapt("org.springframework.boot:spring-boot-configuration-processor")
 }
 
@@ -48,6 +48,6 @@ tasks.withType<Test> {
 tasks.withType<KotlinCompile> {
 	kotlinOptions {
 		freeCompilerArgs = listOf("-Xjsr305=strict")
-		jvmTarget = "14"
+		jvmTarget = "17"
 	}
 }

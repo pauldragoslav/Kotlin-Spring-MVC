@@ -1,4 +1,4 @@
-FROM adoptopenjdk/openjdk14:jdk-14.0.1_7-alpine
+FROM eclipse-temurin:17.0.3_7-jdk-alpine
 VOLUME /tmp
 ARG JAR_FILE
 COPY build/libs/giraffe-blog-*.jar app.jar

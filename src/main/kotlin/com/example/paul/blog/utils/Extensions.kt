@@ -27,7 +27,7 @@ private val englishDateFormatter = DateTimeFormatterBuilder()
         .appendPattern("yyyy")
         .toFormatter(Locale.ENGLISH)
 
-fun String.toSlug() = toLowerCase()
+fun String.toSlug() = lowercase()
         .replace("\n", " ")
         .replace("[^a-z\\d\\s]".toRegex(), " ")
         .split(" ")
